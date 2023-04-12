@@ -1,5 +1,5 @@
 #include "move.h"
 
-Result Move::perform(Engine& engine) {
+Result Move::perform(Engine&) {
     return success();
 }

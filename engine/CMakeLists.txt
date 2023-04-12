@@ -1,13 +1,7 @@
 project(engine)
 
-# set path to SDL include directory
-#set(SDL2_INCLUDES "${CMAKE_CURRENT_SOURCE_DIR}/SDL2/include")
-
 find_package(SDL2 REQUIRED)
-find_package(SDL2_image REQUIRED)
 
-message(STATUS "Found SDL2 = ${SDL2_LIBRARIES}")
-message(STATUS "Found SDL2_image = ${SDL2_IMAGE_LIBRARIES}")
 
 add_subdirectory(util)
 add_subdirectory(graphics)
@@ -30,5 +24,5 @@ add_library(engine
   engine.cpp)
 
 target_compile_features(engine PUBLIC cxx_std_17)
-target_include_directories(engine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
-target_link_libraries(engine PUBLIC util graphics map input SDL2::SDL2 SDL2_image::SDL2_image)
+target_include_directories(engine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${SDL2_INCLUDE_DIRS})
+target_link_libraries(engine PUBLIC util graphics map input SDL2::SDL2)

@@ -4,7 +4,7 @@ add_library(graphics
   animatedsprite.cpp
   )
 
-target_compile_features(graphics PUBLIC cxx_std_17)
-
-target_include_directories(graphics PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} PRIVATE ${SDL2_INCLUDES})
-target_link_libraries(graphics PUBLIC util PRIVATE ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
+find_package(SDL2 REQUIRED)
+find_package(SDL2_image REQUIRED)
+target_include_directories(graphics PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
+target_link_libraries(graphics PUBLIC util SDL2::SDL2 SDL2_image::SDL2_image)
