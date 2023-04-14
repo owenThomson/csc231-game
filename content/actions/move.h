@@ -1,9 +1,13 @@
 #pragma once
 
 #include "action.h"
+#include "vec.h"
 
 class Move : public Action {
 public:
-    Move() {}
+    Move(Vec direction) {}
     Result perform(Engine& engine) override;
+
+private:
+    Vec direction;
 };
