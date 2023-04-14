@@ -7,5 +7,5 @@
 Result Move::perform(Engine&) {
     Vec position = actor->get_position();
     std::cout << position << "\n";
-    success();
+    return success();
 }
