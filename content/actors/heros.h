@@ -11,6 +11,18 @@ const std::unordered_map<std::string, Reaction> keybindings = {
     {"Left",
      []() {
          return std::make_unique<Move>(Vec{-1, 0});
+     }},
+    {"Right",
+     []() {
+         return std::make_unique<Move>(Vec{1, 0});
+     }},
+    {"Up",
+     []() {
+         return std::make_unique<Move>(Vec{0, 1});
+     }},
+    {"Down",
+     []() {
+         return std::make_unique<Move>(Vec{0, -1});
      }}
 
 };

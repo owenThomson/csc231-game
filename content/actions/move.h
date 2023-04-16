@@ -5,7 +5,7 @@
 
 class Move : public Action {
 public:
-    Move(Vec direction) {}
+    Move(Vec direction);
     Result perform(Engine& engine) override;
 
 private:
