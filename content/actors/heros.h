@@ -1,5 +1,6 @@
 #pragma once
 
+#include "closedoor.h"
 #include "herotype.h"
 #include "move.h"
 #include "none.h"
@@ -25,7 +26,8 @@ const std::unordered_map<std::string, Reaction> keybindings = {
      []() {
          return std::make_unique<Move>(Vec{0, -1});
      }},
-    {"R", []() { return std::make_unique<Rest>(); }}
+    {"R", []() { return std::make_unique<Rest>(); }},
+    {"C", []() { return std::make_unique<CloseDoor>(); }}
 
 };
 
