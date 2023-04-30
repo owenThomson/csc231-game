@@ -5,7 +5,7 @@
 
 namespace Monsters {
 std::unique_ptr<Action> default_behavior(Engine& engine, Monster& monster);
-MonsterType gobline();
+MonsterType goblin();
 MonsterType skeleton();
 
 }  // namespace Monsters
