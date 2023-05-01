@@ -4,6 +4,7 @@
 
 #include "actor.h"
 #include "engine.h"
+#include "updatefov.h"
 
 Result OpenDoor::perform(Engine& engine) {
     Tile& tile = engine.dungeon.tiles(position);
@@ -11,6 +12,7 @@ Result OpenDoor::perform(Engine& engine) {
         Door& door = engine.dungeon.doors.at(position);
         door.open();
         tile.walkable = true;
+        engine.events.add(UpdateFOV{});
         return success();
     }
 }

@@ -4,6 +4,7 @@
 
 #include "actor.h"
 #include "engine.h"
+#include "updatefov.h"
 
 bool closed_any_doors{false};
 bool walkable{true};
@@ -17,6 +18,7 @@ Result CloseDoor::perform(Engine& engine) {
             door.close();
             closed_any_doors = true;
             tile.walkable = false;
+            engine.events.add(UpdateFOV{});
         }
     }
     if (closed_any_doors) {
