@@ -14,6 +14,8 @@ Result OpenDoor::perform(Engine& engine) {
         tile.walkable = true;
         engine.events.add(UpdateFOV{});
         return success();
+    } else {
+        return failure();
     }
 }
 
