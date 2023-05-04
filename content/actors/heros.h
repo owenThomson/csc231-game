@@ -32,7 +32,7 @@ const std::unordered_map<std::string, Reaction> keybindings = {
 };
 
 constexpr int default_speed{8};
-const HeroType nobody{"wizard", default_speed, 1, std::make_shared<Mace>(4),
+const HeroType nobody{"wizard", default_speed, 5, std::make_shared<Mace>(4),
                       keybindings};
 
 }  // namespace Heros

@@ -1,6 +1,8 @@
 #include "monsters.h"
 
 #include "engine.h"
+#include "hammer.h"
+#include "knife.h"
 #include "monster.h"
 #include "move.h"
 #include "none.h"
@@ -32,20 +34,20 @@ std::unique_ptr<Action> default_behavior(Engine& engine, Monster& me) {
 constexpr int default_speed{8};
 
 MonsterType goblin() {
-    int health = 2;
-    return {"goblin", default_speed, health, std::make_shared<None>(),
+    int health = 8;
+    return {"goblin", default_speed, health, std::make_shared<Hammer>(1),
             default_behavior};
 }
 
 MonsterType orc() {
     int health = 2;
-    return {"orc", default_speed, health, std::make_shared<None>(),
+    return {"orc", default_speed, health, std::make_shared<Knife>(2),
             default_behavior};
 }
 
 MonsterType skeleton() {
     int health = 2;
-    return {"skeleton", default_speed, health, std::make_shared<None>(),
+    return {"skeleton", default_speed, health, std::make_shared<Hammer>(2),
             default_behavior};
 }
 

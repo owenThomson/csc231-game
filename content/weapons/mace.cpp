@@ -4,6 +4,6 @@
 
 Mace::Mace(int damage) : Weapon{"mace", damage} {}
 
-void Mace::use(Engine& engine, Actor&, Actor& defender) {
+void Mace::use(Engine& engine, Actor& attacker, Actor& defender) {
     engine.events.add(Hit{defender, damage});
 }
