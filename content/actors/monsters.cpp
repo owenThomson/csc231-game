@@ -3,6 +3,7 @@
 #include "engine.h"
 #include "hammer.h"
 #include "knife.h"
+#include "mace.h"
 #include "monster.h"
 #include "move.h"
 #include "none.h"
@@ -35,19 +36,19 @@ constexpr int default_speed{8};
 
 MonsterType goblin() {
     int health = 3;
-    return {"goblin", default_speed, health, std::make_shared<Hammer>(1),
+    return {"goblin", default_speed, health, std::make_shared<Mace>(1),
             default_behavior};
 }
 
 MonsterType orc() {
     int health = 2;
-    return {"orc", default_speed, health, std::make_shared<Hammer>(1),
+    return {"orc", default_speed, health, std::make_shared<Mace>(1),
             default_behavior};
 }
 
 MonsterType skeleton() {
     int health = 2;
-    return {"skeleton", default_speed, health, std::make_shared<Hammer>(1),
+    return {"skeleton", default_speed, health, std::make_shared<Mace>(1),
             default_behavior};
 }
 

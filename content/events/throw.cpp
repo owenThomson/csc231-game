@@ -19,17 +19,17 @@ Throw::Throw(Sprite& sprite, Vec direction, Actor& defender, int damage)
         sprite.angle = -90;
         starting_angle = 0;
         delta_angle = 360 / (duration / 3);
-        sprite.shift.x = 10;
+        sprite.shift.x = 0;
     } else if (direction == Vec{-1, 0}) {
         sprite.angle = 90;
         starting_angle = 0;
         delta_angle = -360 / (duration / 3);
-        sprite.shift.x = -15;
+        sprite.shift.x = 0;
     } else if (direction == Vec{0, 1}) {
         sprite.angle = -180;
         starting_angle = 0;
         delta_angle = 360 / (duration / 3);
-        sprite.shift.y -= 30;
+        sprite.shift.y -= 32;
     } else if (direction == Vec{0, -1}) {
         sprite.angle = 180;
         starting_angle = 0;
