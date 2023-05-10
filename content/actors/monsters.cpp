@@ -41,7 +41,7 @@ MonsterType goblin() {
 
 MonsterType orc() {
     int health = 2;
-    return {"orc", default_speed, health, std::make_shared<Knife>(1),
+    return {"orc", default_speed, health, std::make_shared<Hammer>(1),
             default_behavior};
 }
 
