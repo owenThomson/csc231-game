@@ -20,7 +20,11 @@ Result Move::perform(Engine& engine) {
     }
     // attack if tile.actor
     if (tile.actor) {
-        return alternative(Attack{*tile.actor});
+        if (tile.actor->team != actor->team) {
+            return alternative(Attack{*tile.actor});
+        } else {
+            return alternative(Rest());
+        }
     }
 
     if (tile.is_door()) {

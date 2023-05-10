@@ -8,12 +8,13 @@
 constexpr int duration = 10;
 
 Throw::Throw(Sprite& sprite, Vec direction, Actor& defender, int damage)
-    : Event{5},
+    : Event{10},
       sprite{sprite},
       copy{sprite},
       direction{direction},
       defender{defender},
-      damage{damage} {
+      damage{damage},
+      starting_angle{sprite.angle} {
     if (direction == Vec{1, 0}) {
         sprite.angle = -90;
         starting_angle = 0;
@@ -23,7 +24,7 @@ Throw::Throw(Sprite& sprite, Vec direction, Actor& defender, int damage)
         sprite.angle = 90;
         starting_angle = 0;
         delta_angle = -360 / (duration / 3);
-        sprite.shift.x = -10;
+        sprite.shift.x = -15;
     } else if (direction == Vec{0, 1}) {
         sprite.angle = -180;
         starting_angle = 0;

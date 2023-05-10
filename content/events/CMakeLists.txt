@@ -5,6 +5,7 @@ add_library(events
  thrust.cpp
  swing.cpp
  throw.cpp
+ lightning.cpp
   )
 
 target_include_directories(events PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
