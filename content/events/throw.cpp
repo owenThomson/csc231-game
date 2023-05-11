@@ -17,21 +17,21 @@ Throw::Throw(Sprite& sprite, Vec direction, Actor& defender, int damage)
       starting_angle{sprite.angle} {
     if (direction == Vec{1, 0}) {
         starting_angle = 0;
-        delta_angle = 540 / (duration - 1);
+        delta_angle = 540 / (duration - 3);
 
     } else if (direction == Vec{-1, 0}) {
         starting_angle = 0;
-        delta_angle = -540 / (duration - 1);
+        delta_angle = -540 / (duration - 3);
 
     } else if (direction == Vec{0, 1}) {
         double sign = std::copysign(1.0, starting_angle);
         starting_angle = 45 * sign;
-        delta_angle = -360 / (duration - 1) * sign;
+        delta_angle = -360 / (duration - 3) * sign;
         sprite.shift.y -= 32;
     } else if (direction == Vec{0, -1}) {
         double sign = std::copysign(1.0, starting_angle);
         starting_angle = 45 * sign;
-        delta_angle = 360 / (duration - 1) * sign;
+        delta_angle = 360 / (duration - 3) * sign;
         sprite.shift.y += 16;
     }
 }
