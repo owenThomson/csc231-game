@@ -1,9 +1,9 @@
 #pragma once
 
-#include "actor.h"
-#include "herotype.h"
-#include "animatedsprite.h"
 #include "action.h"
+#include "actor.h"
+#include "animatedsprite.h"
+#include "herotype.h"
 
 class Hero : public Actor {
 public:
@@ -23,9 +23,12 @@ public:
 
     // called by engine when a button press or mouse click has taken place
     void handle_input(const std::string& key_name);
-    
+
     HeroType type;
-    
+
+    bool invisible{false};
+    int invisibility_duration{0};
+
 private:
     // next action is set by engine via handle_input
     std::unique_ptr<Action> next_action;

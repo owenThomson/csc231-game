@@ -5,6 +5,7 @@ add_library(events
  thrust.cpp
  swing.cpp
  throw.cpp
+
  lightning.cpp
  fire.cpp
   )

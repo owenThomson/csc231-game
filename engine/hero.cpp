@@ -7,13 +7,15 @@ constexpr int TEAM_HERO = 0;
 constexpr double WEAPON_ANGLE = 20;
 
 Hero::Hero(Engine& engine, HeroType type, const Vec& position)
-    :Actor{engine, position, type.max_health, TEAM_HERO, type.speed}, type{type} {
+    : Actor{engine, position, type.max_health, TEAM_HERO, type.speed},
+      type{type} {
     move_to(position);
     sprite = engine.graphics.get_animated_sprite(type.sprite_name, 1, true);
     type.weapon->sprite = engine.graphics.get_sprite(type.weapon->name);
-    type.weapon->sprite.shift.x = sprite.get_sprite().size.x/8;
+    type.weapon->sprite.shift.x = sprite.get_sprite().size.x / 8;
     type.weapon->sprite.angle = WEAPON_ANGLE;
-    type.weapon->sprite.center = {type.weapon->sprite.size.x / 2, type.weapon->sprite.size.y};
+    type.weapon->sprite.center = {type.weapon->sprite.size.x / 2,
+                                  type.weapon->sprite.size.y};
 }
 
 void Hero::change_direction(const Vec& dir) {
@@ -21,12 +23,12 @@ void Hero::change_direction(const Vec& dir) {
     if (direction.x == 1) {
         sprite.flip(false);
         type.weapon->sprite.flip = false;
-        type.weapon->sprite.shift.x = sprite.get_sprite().size.x/8;
+        type.weapon->sprite.shift.x = sprite.get_sprite().size.x / 8;
         type.weapon->sprite.angle = WEAPON_ANGLE;
     } else if (direction.x == -1) {
         sprite.flip(true);
         type.weapon->sprite.flip = true;
-        type.weapon->sprite.shift.x = -sprite.get_sprite().size.x/2;
+        type.weapon->sprite.shift.x = -sprite.get_sprite().size.x / 2;
         type.weapon->sprite.angle = -WEAPON_ANGLE;
     }
 }
@@ -48,6 +50,14 @@ void Hero::update() {
 std::unique_ptr<Action> Hero::take_turn() {
     auto action = std::move(next_action);
     next_action = nullptr;
+
+    if (invisible) {
+        invisibility_duration += 1;
+        if (invisibility_duration == 10) {
+            invisible == false;
+        }
+    }
+
     return action;
 }
 

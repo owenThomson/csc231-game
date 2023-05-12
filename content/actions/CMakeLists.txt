@@ -4,6 +4,7 @@ add_library(actions
   closedoor.cpp
   opendoor.cpp
   wandor.cpp
+  invisible.cpp
   attack.cpp
   )
 
