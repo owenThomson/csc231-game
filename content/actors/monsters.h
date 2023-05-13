@@ -9,4 +9,6 @@ MonsterType goblin();
 MonsterType orc();
 MonsterType skeleton();
 
+// namespace Monsters
+
 }  // namespace Monsters

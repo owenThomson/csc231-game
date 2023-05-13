@@ -5,6 +5,8 @@
 #include "actor.h"
 #include "attack.h"
 #include "engine.h"
+#include "hero.h"
+#include "invisible.h"
 #include "opendoor.h"
 #include "rest.h"
 
@@ -17,6 +19,9 @@ Result Move::perform(Engine& engine) {
 
     if (tile.is_wall()) {
         return failure();
+    }
+
+    if (actor->is_visible()) {
     }
     // attack if tile.actor
     if (tile.actor) {
@@ -34,6 +39,6 @@ Result Move::perform(Engine& engine) {
         }
     }
 
-    actor->move_to(position);
+        actor->move_to(position);
     return success();
 }

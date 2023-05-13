@@ -13,7 +13,9 @@
 
 namespace Monsters {
 std::unique_ptr<Action> default_behavior(Engine& engine, Monster& me) {
-    if (me.is_visible() && engine.hero) {
+    if (engine.hero->invisible == true) {
+        return std::make_unique<Rest>();
+    } else if (me.is_visible() && engine.hero) {
         std::vector<Vec> path = engine.dungeon.calculate_path(
             me.get_position(), engine.hero->get_position());
         if (path.size() > 1) {

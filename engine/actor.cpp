@@ -52,6 +52,10 @@ bool Actor::is_visible() const {
     return tile.visible;
 }
 
+// bool Actor::not_visible() const {
+//     return engine.hero->invisible = true;
+// }
+
 void Actor::take_damage(int amount) {
     health -= amount;
     health = std::clamp(health, 0, max_health);

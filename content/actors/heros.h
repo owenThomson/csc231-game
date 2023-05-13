@@ -3,6 +3,7 @@
 #include "closedoor.h"
 #include "hammer.h"
 #include "herotype.h"
+#include "invisible.h"
 #include "knife.h"
 #include "mace.h"
 #include "move.h"
@@ -31,6 +32,7 @@ const std::unordered_map<std::string, Reaction> keybindings = {
      }},
     {"R", []() { return std::make_unique<Rest>(); }},
     {"C", []() { return std::make_unique<CloseDoor>(); }},
+    {"I", []() { return std::make_unique<Invisible>(); }},
 
 };
 
