@@ -51,10 +51,11 @@ std::unique_ptr<Action> Hero::take_turn() {
     auto action = std::move(next_action);
     next_action = nullptr;
 
-    if (invisible) {
+    if (invisible && action) {
         invisibility_duration += 1;
         if (invisibility_duration == 10) {
             engine.hero->invisible = false;
+            invisibility_duration = 0;
         }
     }
 
