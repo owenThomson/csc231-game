@@ -7,9 +7,13 @@
 #include "wandor.h"
 // bool invisible{true};
 Result Invisible::perform(Engine& engine) {
-       engine.hero->invisible = true;
+    if (engine.hero->invisible) {
+        return failure();
+    } else {
+        engine.hero->invisible = true;
 
-    return success();
+        return success();
+    }
 
     // if (invisible) {
     //     return alternative(Wandor());
